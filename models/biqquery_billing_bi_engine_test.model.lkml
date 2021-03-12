@@ -11,6 +11,7 @@ datagroup: biqquery_billing_bi_engine_test_default_datagroup {
 persist_with: biqquery_billing_bi_engine_test_default_datagroup
 
 explore: jay_test {
+  persist_for: "0 seconds"
   join: jay_test__labels {
     view_label: "Jay Test: Labels"
     sql: LEFT JOIN UNNEST(${jay_test.labels}) as jay_test__labels ;;
@@ -52,6 +53,7 @@ explore: mw_billing_export {
 }
 
 explore: mw_query_history {
+  persist_for: "0 seconds"
   join: mw_query_history__labels {
     view_label: "Mw Query History: Labels"
     sql: LEFT JOIN UNNEST(${mw_query_history.labels}) as mw_query_history__labels ;;
@@ -65,4 +67,6 @@ explore: mw_query_history {
   }
 }
 
-explore: tony_chicago_crime {}
+explore: tony_chicago_crime {
+  persist_for: "0 seconds"
+}
